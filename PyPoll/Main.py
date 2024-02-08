@@ -24,14 +24,15 @@ with open(csv_file_path) as csv_file:
 	csv_reader = csv.reader(csv_file, delimiter=",")
 
 	for row in csv_reader:
-        # votes for candidates
+       
+		# votes for candidates
 		if row[2] == "Charles Casper Stockham":
 			charles += 1
 		elif row[2] == "Diana DeGette":
 			diana += 1
 		else:
 			raymon += 1
-		ballot_id.append(row[0])  # Assuming ballot ID is in the first column
+		ballot_id.append(row[0]) 
 
 # percentages of votes per candidate
 percent_charles = round(charles / len(ballot_id) * 100, 3)
@@ -40,16 +41,21 @@ percent_raymon = round(raymon / len(ballot_id) * 100, 3)
 
 # printing election results
 print("Election Results")
+
 # printing separating line
 print("---------------------------")
+
 # printing total number of votes
 print("Total Votes:", total_votes)
+
 # printing separating line
 print("---------------------------")
+
 # printing the votes for each candidate
 print("Charles Casper Stockham: " + str(percent_charles) + "%  (" + str(charles) + ")")
 print("Diana DeGette: " + str(percent_diana) + "%  (" + str(diana) + ")")
 print("Raymon Anthony Doane: " + str(percent_raymon) + "%  (" + str(raymon) + ")")
+
 # printing separating line
 print("---------------------------")
 # printing the winning candidate
@@ -60,8 +66,8 @@ elif diana > charles and diana > raymon:
 else:
     print("Winner: Raymon Anthony Doane")
 print("---------------------------")
-# writing multiple lines in a Text File
 
+# writing multiple lines in a Text File
 import os
 
 analysis_output = os.path.join('analysis', 'PypollAnaysis.txt')
